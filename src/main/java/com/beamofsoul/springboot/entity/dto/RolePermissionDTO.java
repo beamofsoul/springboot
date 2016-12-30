@@ -1,0 +1,51 @@
+package com.beamofsoul.springboot.entity.dto;
+
+import com.beamofsoul.springboot.entity.Permission;
+import com.beamofsoul.springboot.entity.Role;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor(force=true)
+@AllArgsConstructor
+public class RolePermissionDTO {
+
+	private Long roleId;
+	private String roleName;
+	private Long permissionId;
+	private String permissionName;
+	private String permissionAction;
+	private String permissionUrl;
+	private String permissionResourceType;
+	private Long permissionParentId;
+	private Boolean permissionAvailable;
+
+	public RolePermissionDTO(Long roleId, String roleName,
+			Long permissionId, String permissionName,
+			Boolean permissionAvailable, Long permissionParentId,
+			String permissionResourceType, String permissionUrl,
+			String permissionAction) {
+		super();
+		this.roleId = roleId;
+		this.roleName = roleName;
+		this.permissionId = permissionId;
+		this.permissionName = permissionName;
+		this.permissionAvailable = permissionAvailable;
+		this.permissionParentId = permissionParentId;
+		this.permissionResourceType = permissionResourceType;
+		this.permissionUrl = permissionUrl;
+		this.permissionAction = permissionAction;
+	}
+
+	public Role convertToRole() {
+		return new Role(roleId, roleName);
+	}
+
+	public Permission convertToPermission() {
+		return new Permission(permissionId, permissionName, permissionAction,
+				permissionUrl, permissionResourceType, permissionParentId,
+				permissionAvailable);
+	}
+}
