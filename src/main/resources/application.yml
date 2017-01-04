@@ -6,6 +6,7 @@ server:
   tomcat.max-threads: 0
   tomcat.uri-encoding: UTF-8
 
+# spring.datasource.* 此部分属性由DruidConfiguration文件读取并配置，所有结构与命名都已与该类紧密捆绑
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -31,7 +32,7 @@ spring:
     poolPreparedStatements: true
     maxPoolPreparedStatementPerConnectionSize: 20
     # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-    filters: stat,wall,logback
+    filters: stat,wall,slf4j
     # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据

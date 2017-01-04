@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebInitParam;
 
 /**
  * Druid状态过滤器
+ * 该配置中的所有文件或内容将被Druid过滤器忽略
  * @author MingshuJian
  */
 @WebFilter(filterName="druidWebStatFilter",urlPatterns="/*",initParams={
