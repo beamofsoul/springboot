@@ -129,6 +129,8 @@
     </root> 
     
 	<!-- 第三方包的日志过滤级别，用于避免刷屏 -->
+	<logger name="net.sf.ehcache" level="WARN" />
+	<logger name="org.jboss.logging" level="WARN" />
 	<logger name="com.alibaba" level="WARN" />
 	<logger name="druid.sql.Connection" level="WARN" />
     <logger name="org.hibernate" level="WARN" />
