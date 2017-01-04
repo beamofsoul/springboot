@@ -84,12 +84,12 @@ public class DruidConfiguration {
     
     @Value("${spring.datasource.useGlobalDataSourceStat}")
     private boolean useGlobalDataSourceStat;
-      
+    
     @Bean
     @Primary  //在同样的DataSource中，首先使用被标注的DataSource  
     public DataSource dataSource(){  
-        DruidDataSource datasource = new DruidDataSource();  
-         
+        DruidDataSource datasource = new DruidDataSource();
+        
 //        datasource.setDbType(dbType);
         datasource.setUrl(this.dbUrl);  
         datasource.setUsername(username);  
@@ -117,7 +117,7 @@ public class DruidConfiguration {
         
         datasource.setConnectionProperties(connectionProperties);
         datasource.setUseGlobalDataSourceStat(useGlobalDataSourceStat);
-          
+        
         return datasource;
     }  
 }
